@@ -53,7 +53,7 @@ def main():
     HASHER = Hasher()
     GIVEN = 'I love using sponges for crypto'
     TARGET = HASHER.hash(GIVEN)
-
+    #通过after输出获得
     D='cba5d1139c347a3c6fc8afcfecd21a8d'.decode("hex")
     # AES(AES(a) xor b) xor c = D
     # AES(AES(a) xor b) = D xor c
@@ -61,13 +61,15 @@ def main():
     print "Precalculating..."
     if 0:
         poss={}
-        for i in xrange(2**16):
+        #爆破形式
+        for i in xrange(2**24):
             if i%100000==0:
                 print i,"/",2**24
             c=str(i)
             c=c+(16-len(c))*"\x00"
             D_xor_c="".join(chr(ord(q1)^ord(q2)) for q1, q2 in zip(D, c))
             preimage=aes.decrypt(D_xor_c)
+            #后缀
             suffix=preimage[10:]
             poss[suffix]=(preimage, c)
         # AES(a) xor b is in poss set
