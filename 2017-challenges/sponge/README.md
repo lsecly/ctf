@@ -15,4 +15,5 @@ hash基本流程
     之后，另最后一块也为o ，由于D和block均相同，故得到的hash也相同。
 ```
 
-
+# 参考链接
+[https://github.com/p4-team/ctf/tree/master/2017-02-25-bkp/sponge](https://github.com/p4-team/ctf/tree/master/2017-02-25-bkp/sponge) 
